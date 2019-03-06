@@ -18,7 +18,7 @@ SwiftClient.create = function (url, username, password) {
   var _this = this;
 
   return requestp({
-      method: 'POST',
+      method: 'GET',
       uri: url,
       headers: {
         'x-storage-user': username,
