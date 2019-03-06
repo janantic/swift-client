@@ -21,13 +21,13 @@ SwiftClient.create = function (url, username, password) {
       method: 'POST',
       uri: url,
       headers: {
-        'x-auth-user': username,
-        'x-auth-key': password
+        'x-storage-user': username,
+        'x-storage-pass': password
       },
       resolveWithFullResponse: true
     })
     .then(function (response) {
-      return new SwiftClient(url, response.headers['x-auth-token']);
+      return new SwiftClient(response.headers['x-storage-url'], response.headers['x-auth-token']);
     });
 };
 
