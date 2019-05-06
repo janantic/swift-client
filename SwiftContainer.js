@@ -32,7 +32,9 @@ SwiftContainer.prototype.create = function (name, stream, meta, extra) {
         if (response.statusCode === 201) {
           resolve();
         } else {
-          reject(new Error('HTTP ' + response.statusCode));
+          let error = new Error('HTTP ' + response.statusCode);
+          error.statusCode = response.statusCode;
+          reject(error);
         }
       });
 
